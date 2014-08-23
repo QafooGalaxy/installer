@@ -109,24 +109,8 @@ class InstallerTest extends TestCase
     public function dataForTestInstallPath()
     {
         return array(
-            array('ansible-role', 'provisioning/roles/common/', 'ansible/common'),
+            array('ansible-role', 'roles/', 'ansible/common'),
         );
-    }
-
-    /**
-     * testGetCakePHPInstallPathException
-     *
-     * @return void
-     *
-     * @expectedException \InvalidArgumentException
-     */
-    public function testGetCakePHPInstallPathException()
-    {
-        $installer = new Installer($this->io, $this->composer);
-        $package = new Package('shama/ftp', '1.0.0', '1.0.0');
-
-        $package->setType('cakephp-whoops');
-        $result = $installer->getInstallPath($package);
     }
 
     public function testUninstallAndDeletePackageFromLocalRepo()
