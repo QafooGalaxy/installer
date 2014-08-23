@@ -26,7 +26,15 @@ class AnsibleInstaller extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-        return self::ANSIBLE_ROLE_PATH;
+        $prettyName = $package->getPrettyName();
+
+        if (strpos($prettyName, '/') !== false) {
+            list($vendor, $name) = explode('/', $prettyName);
+        } else {
+            throw new \RuntimeException('Has to be organization/package name style naming.');
+        }
+
+        return self::ANSIBLE_ROLE_PATH . $name;
     }
 
     public function uninstall(InstalledRepositoryInterface $repository, PackageInterface $package)

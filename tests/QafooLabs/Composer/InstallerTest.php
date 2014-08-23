@@ -109,13 +109,14 @@ class InstallerTest extends TestCase
     public function dataForTestInstallPath()
     {
         return array(
-            array('ansible-role', 'roles/', 'ansible/common'),
+            array('ansible-role', 'roles/common', 'ansible/common'),
+            array('ansible-role', 'roles/nodejs', 'qafooansible/nodejs'),
         );
     }
 
     public function testUninstallAndDeletePackageFromLocalRepo()
     {
-        $package = new Package('foo', '1.0.0', '1.0.0');
+        $package = new Package('foo/bar', '1.0.0', '1.0.0');
 
         $installer = new AnsibleInstaller($this->io, $this->composer);
 
