@@ -1,4 +1,4 @@
 <?php
 
 $loader = require __DIR__ . '/../src/bootstrap.php';
-$loader->add('Composer\Installers\Test', __DIR__);
+$loader->add('QafooLabs\Composer', __DIR__);

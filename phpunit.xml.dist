@@ -13,13 +13,13 @@
 >
     <testsuites>
         <testsuite name="Installers Test Suite">
-            <directory>tests/Composer/Installers</directory>
+            <directory>tests/QafooLabs/Composer</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>src/Composer/Installers</directory>
+            <directory>src/QafooLabs/Composer</directory>
         </whitelist>
     </filter>
 </phpunit>

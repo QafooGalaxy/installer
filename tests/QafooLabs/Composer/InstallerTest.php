@@ -1,7 +1,7 @@
 <?php
-namespace Composer\Installers\Test;
+namespace QafooLabs\Composer;
 
-use Composer\Installers\Installer;
+use QafooLabs\Composer\AnsibleInstaller;
 use Composer\Util\Filesystem;
 use Composer\Package\Package;
 use Composer\Package\RootPackage;
@@ -74,7 +74,7 @@ class InstallerTest extends TestCase
      */
     public function testSupports($type, $expected)
     {
-        $installer = new Installer($this->io, $this->composer);
+        $installer = new AnsibleInstaller($this->io, $this->composer);
         $this->assertSame($expected, $installer->supports($type), sprintf('Failed to show support for %s', $type));
     }
 
@@ -95,7 +95,7 @@ class InstallerTest extends TestCase
      */
     public function testInstallPath($type, $path, $name, $version = '1.0.0')
     {
-        $installer = new Installer($this->io, $this->composer);
+        $installer = new AnsibleInstaller($this->io, $this->composer);
         $package = new Package($name, $version, $version);
 
         $package->setType($type);
@@ -117,8 +117,9 @@ class InstallerTest extends TestCase
     {
         $package = new Package('foo', '1.0.0', '1.0.0');
 
-        $installer = $this->getMock('Composer\Installers\Installer', array('getInstallPath'), array($this->io, $this->composer));
-        $installer->expects($this->once())->method('getInstallPath')->with($package)->will($this->returnValue(sys_get_temp_dir().'/foo'));
+        $installer = new AnsibleInstaller($this->io, $this->composer);
+
+        $this->io->expects($this->once())->method('write');
 
         $repo = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
         $repo->expects($this->once())->method('hasPackage')->with($package)->will($this->returnValue(true));

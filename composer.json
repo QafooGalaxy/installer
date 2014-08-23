@@ -13,16 +13,23 @@
             "name": "Kyle Robinson Young",
             "email": "kyle@dontkry.com",
             "homepage": "https://github.com/shama"
+        },
+        {
+            "name": "Jakob Westhoff",
+            "email": "jakob@qafoo.com",
+            "homepage": "https://github.com/jakobwesthoff"
+        },
+        {
+            "name": "Benjamin Eberlei",
+            "email": "benjamin@qafoo.com",
+            "homepage": "https://github.com/beberlei"
         }
     ],
     "autoload": {
-        "psr-0": { "Composer\\Installers\\": "src/" }
+        "psr-0": { "QafooLabs\\Composer\\": "src/" }
     },
     "extra": {
-        "class": "Composer\\Installers\\Installer",
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        }
+        "class": "QafooLabs\\Composer\\AnsibleInstaller"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
