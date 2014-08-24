@@ -1,5 +1,5 @@
 {
-    "name": "qafooansible/installer",
+    "name": "qafoogalaxy/installer",
     "type": "composer-installer",
     "license": "MIT",
     "description": "Installer for ansible roles",
